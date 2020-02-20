@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="formViewModel"
+            type="com.himanshu.test.FormViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Name"
+            app:error="@{formViewModel.errorName}"
+            android:text="@={formViewModel.age}"
+            app:errorEnabled="true"
+            android:inputType="text"
+            android:lineSpacingExtra="8sp"
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-3dp"
+            tools:layout_editor_absoluteY="7dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:hint="Enter Age"
+            app:error="@{formViewModel.errorAge}"
+            android:text="@={formViewModel.age}"
+            app:errorEnabled="true"
+            android:inputType="number"
+            android:lineSpacingExtra="8sp"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/enterName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/submitbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:onClick="@{()-> formViewModel.onSubmitClicked()}"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="134dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
